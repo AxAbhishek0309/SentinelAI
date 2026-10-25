@@ -214,6 +214,25 @@ Open **`http://localhost:8080`** in your browser.
 
 ---
 
+## 🌐 Deploying to Netlify
+
+The frontend is fully pre-configured for **Netlify** with zero extra setup needed:
+
+1. **Push your repository** to GitHub.
+2. In the [Netlify Dashboard](https://app.netlify.com/), click **Add new site** > **Import an existing project** > **GitHub**.
+3. Select `AxAbhishek0309/SentinelAI`.
+4. Netlify will automatically detect [netlify.toml](netlify.toml):
+   - **Build command**: `bun run build || npm run build`
+   - **Publish directory**: `dist`
+   - **SSR Functions**: `.netlify/functions-internal`
+5. **Environment Variables**:
+   In **Site configuration > Environment variables**, add:
+   - `VITE_API_URL`: The public URL of your deployed FastAPI backend (e.g., `https://sentinel-backend.onrender.com` or `https://api.yourdomain.com`).
+   - `NITRO_PRESET`: `netlify` (already pre-configured in `netlify.toml`).
+6. Click **Deploy Site** — your site will be live on `https://<site-name>.netlify.app` with SSR and edge routing!
+
+---
+
 ## 🔌 API Reference
 
 | Method | Endpoint | Description |
