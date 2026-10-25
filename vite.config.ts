@@ -5,7 +5,7 @@ export default defineConfig({
     server: { entry: "server" },
   },
   nitro: {
-    preset: process.env.NITRO_PRESET || "netlify",
+    preset: process.env.NITRO_PRESET || (process.env.NETLIFY ? "netlify" : "vercel"),
   },
   vite: {
     server: {
